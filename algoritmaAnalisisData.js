@@ -93,3 +93,4 @@ function randomArray(min,max){
 
 randomArray(1,100);
 
+myGithub("https://github.com/MNFaizi/Rakamin_HW/blob/master/algoritmaAnalisisData.js")
