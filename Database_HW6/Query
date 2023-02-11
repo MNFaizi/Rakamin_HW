@@ -1,0 +1,53 @@
+-- Query Create, Insert, Update, Join
+
+SELECT * FROM barang;
+
+SELECT * FROM kategori;
+
+INSERT INTO kategori (nama) 
+	VALUES 
+	('Kebutuhan Pokok'),
+	('Maternitis'),
+	('Makanan Ringan'),
+	('Minuman Bersoda'),
+	('Ice Cream'),
+	('Sabun Cuci Baju'),
+	('Sabun Cuci Piring'),
+	('Susu');
+
+INSERT INTO barang (nama, harga, stok, barang_masuk, barang_kadaluarsa) 
+	VALUES 
+	('shampo','25400','50','2023-02-11','2025-02-11'),
+	('Mama Lemon','2500','100','2023-02-11','2025-06-12'),
+	('Indomilk','35000','120','2023-02-11','2023-07-11'),
+	('Ultra Milk','5600','240','2023-02-11','2023-09-11'),
+	('Rinso','13500','135','2023-02-11','2026-02-11'),
+	('Pepsodent','11500','93','2023-02-11','2025-02-11'),
+	('Chitato','14300','100','2023-02-11','2023-05-11'),
+	('Coca-Cola','10000','150','2023-02-11','2024-09-23');
+
+INSERT INTO kategori_barang (barang_id, kategori_id) 
+	VALUES 
+	(1,1),
+	(2,2),
+	(3,7),
+	(4,8),
+	(5,8),
+	(6,6),
+	(7,2),
+	(8,3),
+	(9,4);
+	
+SELECT 
+	barang.nama AS nama_barang, 
+	barang.harga AS harga, 
+	barang.stok AS stok, 
+	kategori.nama AS kategori, 
+	barang.harga*barang.stok AS total_modal 
+	FROM barang 
+		INNER JOIN kategori_barang 
+			ON barang.id = kategori_barang.barang_id 
+		INNER JOIN kategori 
+			ON kategori.id = kategori_barang.kategori_id;
+
+
