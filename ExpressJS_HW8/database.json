@@ -1,0 +1,10 @@
+{
+    "dev": {
+        "driver": "pg",
+        "host": "localhost",
+        "port": 5432,
+        "user": "mochamadnurfaizi",
+        "password": "",
+        "database": "dvdrental"
+    }
+}
