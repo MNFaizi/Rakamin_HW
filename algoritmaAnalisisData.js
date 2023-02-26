@@ -1,4 +1,4 @@
-// array random
+// Creatte random array
 function randomArray(min,max){
     // Create Array
     const numbRand = [];
@@ -59,7 +59,7 @@ function randomArray(min,max){
      let nilaiTotalOdd = oddNumber[0];
      let nilaiRataOdd = oddNumber[0];
      for(let i in oddNumber){
-         nilaiTotalOdd += oddNumber[1];
+         nilaiTotalOdd += oddNumber[i];
          nilaiRataOdd = nilaiTotalOdd/oddNumber.length;
      }
      console.log("nilai Total Ganjil "+ nilaiTotalOdd);
@@ -95,6 +95,74 @@ function randomArray(min,max){
     }
 };
 
-randomArray(1,101);
-
 // myGithub("https://github.com/MNFaizi/Rakamin_HW/blob/master/algoritmaAnalisisData.js")
+
+// Solution perfunction
+const randArr = [];
+const evenArr = [];
+const oddArr = [];
+// function create Array
+const createArr = (min,max) =>{
+    for(let i = 0; i < max; i++){
+        let num = Math.round(Math.random()*((max-min)+min));
+        randArr.push(num);
+    }
+    return randArr;
+};
+// function membagi array menjadi ganjil dan genap
+const splitArr = (value) =>{
+    for(let i = 0; i < value.length;i++){
+        if(value[i] % 2 == 0){
+            evenArr.push(value[i]);
+        }
+        else{
+            oddArr.push(value[i]);
+        }
+    }
+    return [evenArr,oddArr]
+};
+// funciton menjumlahkan array genap
+let sumEven = 0;
+let aveEven = 0;
+const sumAvEven = (arr) =>{
+    for(let i in arr){
+        sumEven+= arr[i];
+        aveEven = sumEven/arr.length;
+    }
+    console.log(sumEven,aveEven);
+    return [sumEven,aveEven];
+};
+// function menjumlahkan array ganjil
+let sumOdd = 0;
+let aveOdd = 0;
+const sumAvOdd = (arr) =>{
+    for(let i in arr){
+        sumOdd+= arr[i];
+        aveOdd = sumOdd/arr.length;
+    }
+    console.log(sumOdd,aveOdd);
+    return [sumOdd,aveOdd];
+};
+// fungsi mendapatkan nilai terbesar dan terkecil genap
+const compareEven = (arr) =>{
+    let valGreatEven = evenArr[0];
+    let valSmallEven = evenArr[0];
+    for(let i of arr){
+        if(arr[i] > valGreatEven){
+            valGreatEven = arr[i];
+        }
+        else if(arr[i] < valGreatEven){
+            valSmallEven = arr[i];
+        }
+    };
+    console.log(valGreatEven,valSmallEven);
+    return [valGreatEven,valSmallEven]
+};
+
+createArr(1,100);
+console.log(randArr);
+splitArr(randArr);
+console.log(evenArr,oddArr);
+sumAvEven(evenArr);
+sumAvOdd(oddArr);
+compareEven(evenArr);

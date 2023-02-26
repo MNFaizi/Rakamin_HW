@@ -70,7 +70,7 @@ function BBMkendaraan(jenisKendaraan,warnaPlat,cckendaraan){
     } */
 }
 
-console.log(BBMkendaraan("mobil","hitam",110))
+console.log(BBMkendaraan("mobil","kuning",110))
 
 // kang galon
 /* const hargaBalon = 50;

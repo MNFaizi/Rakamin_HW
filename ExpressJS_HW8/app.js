@@ -5,6 +5,9 @@ const app = express();
 const filmRouter = require('./routes/filmRouter');
 const categoryRouter = require('./routes/categoryRouter');
 
+// menerima format json
+app.use(express.json());
+app.use(express.urlencoded({extended: true}))
 
 app.use(filmRouter);
 app.use(categoryRouter);
