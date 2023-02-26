@@ -12,26 +12,13 @@ router.get('/category', (req,resp) => {
         })
 })
 
-router.get('/category/:categoryname', (req, resp) => {
-    const categoryName = req.params.categoryname;
-    // const categoryQuery = `select 
-    //                             film.film_id as id,
-    //                             film.title as title,
-    //                             film.description as description,
-    //                             film.release_year as release_year,
-    //                             category.name as category
-    //                         from 
-    //                             film
-    //                             inner join film_category
-    //                                 on film.film_id = film_category.film_id
-    //                             inner join category
-    //                                 on category.category_id = film_category.film_id
-    //                             where film_category = $1`
-    db.query('select * from category where name = $1', [categoryName], (err, res) => {
+router.get('/:category', (req, resp) => {
+    const categoryName = req.params.category;
+    db.query('select * from film_category inner join film on film_category.film_id = film.film_id inner join category on film_category.category_id = category.category_id where category.name = $1', [categoryName], (err, res) => {
         if(err){
             throw err
         }
-        resp.status(200).json(res.rows[0]);
+        resp.status(200).json(res.rows);
     })
 })
 
