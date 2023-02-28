@@ -11,7 +11,7 @@ router.get('/category', (req,resp) => {
             }
             resp.status(200).json(res.rows);
         })
-})
+});
 
 // get list film with category name
 router.get('/:category', (req, resp) => {
@@ -22,7 +22,7 @@ router.get('/:category', (req, resp) => {
         }
         resp.status(200).json(res.rows);
     })
-})
+});
 
 // add some new category name
 router.post('/category/:id', (req, resp) => {
@@ -41,7 +41,7 @@ router.post('/category/:id', (req, resp) => {
             message: "New Category Successfull Add"
         })
     })
-})
+});
 
 
 // edit database router
@@ -62,7 +62,7 @@ router.put('/category/:id', (req, resp) => {
             message: `Category ${id} was updated to ${title}`
         })
     })
-})
+});
 
 // delete category name
 router.delete('/category/:id', (req, resp) => {
@@ -95,5 +95,6 @@ router.delete('/category/:id', (req, resp) => {
             })
         }
     })
-})
+});
+
 module.exports = router;
